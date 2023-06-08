@@ -30,6 +30,10 @@ def run():
         # List all employees
         response = stub.ListAllEmployees(EmployeeService_pb2.EmptyMessage())
         print ('All employees: ' + str(response))
+        
+        #Change Employee Salary
+        response = stub.EmployeeSalary(EmployeeService_pb2.EmployeeSalary(id=101, salary='5000'))
+        print('New salary:' + str(response))
 
 if __name__ == '__main__':
     logging.basicConfig()
