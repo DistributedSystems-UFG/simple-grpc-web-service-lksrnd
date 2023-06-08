@@ -23,7 +23,8 @@ service EmployeeService {
 
   // List all employees
   rpc ListAllEmployees (EmptyMessage) returns (EmployeeDataList) {}
-  
+  //Change salary employee
+  rpc ChanceEmployeeSalary (EmployeeSalary) returns (StatusReply){}
 }
 
 message EmployeeData {
