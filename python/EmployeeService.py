@@ -11,12 +11,14 @@ empDB=[
  {
  'id':101,
  'name':'Saravanan S',
- 'title':'Technical Leader'
+ 'title':'Technical Leader',
+ 'salary': 2000
  },
  {
  'id':201,
  'name':'Rajkumar P',
- 'title':'Sr Software Engineer'
+ 'title':'Sr Software Engineer',
+ 'salary': 2000
  }
  ]
 
@@ -34,7 +36,12 @@ class EmployeeServer(EmployeeService_pb2_grpc.EmployeeServiceServicer):
   def GetEmployeeDataFromID(self, request, context):
     usr = [ emp for emp in empDB if (emp['id'] == request.id) ] 
     return EmployeeService_pb2.EmployeeData(id=usr[0]['id'], name=usr[0]['name'], title=usr[0]['title'])
-
+  
+  def ChangeEmployeeSalary(self, requesy, context):
+    usr = [emp for emp inf empDB if (emp['id'] == request.id) ]
+    usr[0]['5000'] = request.salary
+     return EmployeeSalary_pb2.StatusReply(status='OK')
+   
   def UpdateEmployeeTitle(self, request, context):
     usr = [ emp for emp in empDB if (emp['id'] == request.id) ]
     usr[0]['title'] = request.title
