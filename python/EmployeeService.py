@@ -41,7 +41,7 @@ class EmployeeServer(EmployeeService_pb2_grpc.EmployeeServiceServicer):
   def ChangeEmployeeSalary(self, requesy, context):
     usr = [emp for emp in empDB if (emp['id'] == request.id) ]
     usr[0]['salary'] = request.salary
-     return EmployeeService_pb2.StatusReply(status='OK')
+    return EmployeeService_pb2.StatusReply(status='OK')
    
   def UpdateEmployeeTitle(self, request, context):
     usr = [ emp for emp in empDB if (emp['id'] == request.id) ]
@@ -51,7 +51,7 @@ class EmployeeServer(EmployeeService_pb2_grpc.EmployeeServiceServicer):
   def DeleteEmployee(self, request, context):
     usr = [ emp for emp in empDB if (emp['id'] == request.id) ]
     if len(usr) == 0:
-      return EmployeeService_pb2.StatusReply(status='NOK')
+    return EmployeeService_pb2.StatusReply(status='NOK')
 
     empDB.remove(usr[0])
     return EmployeeService_pb2.StatusReply(status='OK')
