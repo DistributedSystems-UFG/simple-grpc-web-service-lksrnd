@@ -39,7 +39,7 @@ class EmployeeServer(EmployeeService_pb2_grpc.EmployeeServiceServicer):
     return EmployeeService_pb2.EmployeeData(id=usr[0]['id'], name=usr[0]['name'], title=usr[0]['title'])
   
   def ChangeEmployeeSalary(self, requesy, context):
-    usr = [emp for emp inf empDB if (emp['id'] == request.id) ]
+    usr = [emp for emp in empDB if (emp['id'] == request.id) ]
     usr[0]['salary'] = request.salary
      return EmployeeService_pb2.StatusReply(status='OK')
    
