@@ -50,7 +50,7 @@ class EmployeeServer(EmployeeService_pb2_grpc.EmployeeServiceServicer):
 
   def DeleteEmployee(self, request, context):
     usr = [ emp for emp in empDB if (emp['id'] == request.id) ]
-    if len(usr) == 0
+    if len(usr) == 0:
     return EmployeeService_pb2.StatusReply(status='NOK')
 
     empDB.remove(usr[0])
