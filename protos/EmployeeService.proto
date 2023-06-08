@@ -24,7 +24,7 @@ service EmployeeService {
   // List all employees
   rpc ListAllEmployees (EmptyMessage) returns (EmployeeDataList) {}
   //Change salary employee
-  rpc ChangeEmployeeSalary (EmployeeSalary) returns (StatusReply){}
+  rpc UptadeEmployeeSalary (EmployeeSalary) returns (StatusReply){}
 }
 
 message EmployeeData {
@@ -44,6 +44,10 @@ message EmployeeID {
 message EmployeeTitleUpdate {
   uint32 id = 1;
   string title = 2;
+}
+message UpdateSalaryMessage{
+uint32 id = 1;
+uint32 salary = 2;
 }
 
 message EmptyMessage{}
